@@ -11,6 +11,7 @@
 		},
 		"glfw3",
 		"glm",
+		"stb",
 		{
 			"name": "imgui",
 			"features": [
