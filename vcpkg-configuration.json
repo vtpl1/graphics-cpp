@@ -1,0 +1,10 @@
+{
+    "registries": [
+      {
+        "kind": "git",
+        "repository": "https://github.com/vtpl1/vcpkg_registry",
+        "baseline": "e7802359110bc7e9b7382cef1418f01ebaced341",
+        "packages": [ "logutil" ]
+      }
+    ]
+  }
