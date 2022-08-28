@@ -731,8 +731,8 @@ VkCommandBuffer Application::GetCommandBuffer(bool begin)
   cmdBufAllocateInfo.commandPool = command_pool;
   cmdBufAllocateInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
   cmdBufAllocateInfo.commandBufferCount = 1;
-  s_AllocatedCommandBuffers[wd->FrameIndex].emplace_back(); // FIXME: Monotosh
-  VkCommandBuffer& command_buffer = *s_AllocatedCommandBuffers[wd->FrameIndex].end();
+  // s_AllocatedCommandBuffers[wd->FrameIndex].emplace_back(); // FIXME: Monotosh
+  VkCommandBuffer& command_buffer = s_AllocatedCommandBuffers[wd->FrameIndex].emplace_back();
   auto err = vkAllocateCommandBuffers(g_Device, &cmdBufAllocateInfo, &command_buffer);
 
   VkCommandBufferBeginInfo begin_info = {};

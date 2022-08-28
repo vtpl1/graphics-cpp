@@ -25,7 +25,8 @@
 	"extensions": [
 		"ms-vscode.cpptools",
 		"ms-vscode.cmake-tools",
-		"wmaurer.change-case"
+		"wmaurer.change-case",
+		"ms-vscode.cpptools-extension-pack"
 	],
 	"containerEnv": {
 		"LD_LIBRARY_PATH": "${containerWorkspaceFolder}/lib_module_dependencies",
