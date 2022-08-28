@@ -19,17 +19,18 @@ public:
     // ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 650, main_viewport->WorkPos.y + 20),
     // ImGuiCond_FirstUseEver); ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
 
+
     ImGui::SetNextWindowPos(ImVec2(viewport->WorkPos.x, viewport->WorkPos.y), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSize(ImVec2(viewport->WorkSize.x, viewport->WorkSize.y), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowViewport(viewport->ID);
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+    // ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 
     ImGui::Begin("Hello", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoResize);
     ImGui::Button("Button");
     ImGui::Image(m_img->GetDescriptorSet(), {(float)m_img->GetWidth(), (float)m_img->GetHeight()});
 
     ImGui::End();
-    ImGui::PopStyleVar();
+    // ImGui::PopStyleVar();
     // ImGui::ShowDemoWindow();
   }
 

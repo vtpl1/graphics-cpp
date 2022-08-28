@@ -14,19 +14,41 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description":  "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ]
+            "windows": {
+                "name": "walnut-app",
+                "type": "cppvsdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/build/WalnutApp/Debug/walnut-app.exe",
+                "args": [],
+                "stopAtEntry": false,
+                "cwd": "${workspaceFolder}",
+                "environment": [],
+                "externalConsole": false,
+            },
+            "linux": {
+                "name": "walnut-app",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/build/WalnutApp/walnut-app",
+                "args": [],
+                "stopAtEntry": false,
+                "cwd": "${workspaceFolder}",
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    },
+                    {
+                        "description": "Set Disassembly Flavor to Intel",
+                        "text": "-gdb-set disassembly-flavor intel",
+                        "ignoreFailures": true
+                    }
+                ]
+            }
         }
     ]
 }
