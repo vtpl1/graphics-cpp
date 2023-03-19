@@ -3,7 +3,7 @@
 {
 	"name": "C++",
 	"build": {
-		"dockerfile": "Dockerfile",
+		"dockerfile": "../Dockerfile",
 		// Update 'VARIANT' to pick an Debian / Ubuntu OS version: debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
 		// Use Debian 11, Ubuntu 18.04 or Ubuntu 22.04 on local arm64/Apple Silicon
 		"args": {
@@ -23,9 +23,10 @@
 	"settings": {},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-vscode.cpptools",
+		"twxs.cmake",
 		"ms-vscode.cmake-tools",
 		"wmaurer.change-case",
+		"ms-vscode.cpptools",
 		"ms-vscode.cpptools-extension-pack"
 	],
 	"containerEnv": {

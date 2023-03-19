@@ -1,4 +1,4 @@
-ARG VARIANT="18.04"
+ARG VARIANT="20.04"
 FROM ubuntu:${VARIANT}
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -73,7 +73,7 @@ RUN pip3 install -U pip
 RUN pip3 install bump2version
 
 RUN wget -qO - https://packages.lunarg.com/lunarg-signing-key-pub.asc | apt-key add - \
-    && wget -qO /etc/apt/sources.list.d/lunarg-vulkan-1.3.224-focal.list https://packages.lunarg.com/vulkan/1.3.224/lunarg-vulkan-1.3.224-focal.list \
+    && wget -qO "/etc/apt/sources.list.d/lunarg-vulkan-1.3.239-$(lsb_release -cs).list https://packages.lunarg.com/vulkan/1.3.239/lunarg-vulkan-1.3.239-$(lsb_release -cs).list" \
     && apt update && export DEBIAN_FRONTEND=noninteractive \
     && apt -y install vulkan-sdk
 
