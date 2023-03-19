@@ -451,7 +451,8 @@ int main(int, char**)
     // backslash \\ !
     // io.Fonts->AddFontDefault();
     // io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\segoeui.ttf", 18.0f);
-    // io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf", 16.0f);
+    io.Fonts->AddFontFromFileTTF("resources/fonts/roboto/RobotoMono-Medium.ttf", 16.0f);
+    // io.Fonts->AddFontFromFileTTF("resources/fonts/gothic_a1/GothicA1-Regular.ttf", 16.0f);
     // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf", 16.0f);
     // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
     // ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, NULL,
@@ -532,26 +533,33 @@ int main(int, char**)
                 g_SwapChainRebuild = false;
             }
         }
-
+        // ImGuiStyle& style = ImGui::GetStyle();
+        // style.ScaleAllSizes(1);
         // Start the Dear ImGui frame
         ImGui_ImplVulkan_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        bool             use_work_area = false;
-        // ImGuiWindowFlags flags = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
-        //                          ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar |
-        //                          ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar;
-        ImGuiWindowFlags flags = ImGuiWindowFlags_None;
+        static bool             use_work_area = false;
+        static ImGuiWindowFlags flags = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize |
+                                        ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar |
+                                        ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoScrollWithMouse;
+
+        // ImGuiWindowFlags flags = ImGuiWindowFlags_None;
 
         // We demonstrate using the full viewport area or the work area (without menu-bars, task-bars etc.)
         // Based on your use case you may want one or the other.
         const ImGuiViewport* viewport = ImGui::GetMainViewport();
-        ImGui::SetNextWindowPos(use_work_area ? viewport->WorkPos : viewport->Pos, ImGuiCond_Always);
-        ImGui::SetNextWindowSize(use_work_area ? viewport->WorkSize : viewport->Size, ImGuiCond_Always);
-
+        ImGui::SetNextWindowPos(use_work_area ? viewport->WorkPos : viewport->Pos);
+        ImGui::SetNextWindowSize(use_work_area ? viewport->WorkSize : viewport->Size);
+        ImGui::SetNextWindowViewport(viewport->ID);
+        // ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+        // ImGui::PushStyleVar(ImGuiStyleVar_WindowMinSize, ImVec2{0.0f, 0.0f});
+        // ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{40.0f, 2.0f});
+        // ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4{0.01f, 0.01f, 0.01f, 1.0f});
+        // https://github.com/ocornut/imgui/issues/4389
         if (ImGui::Begin("Example: Fullscreen window", nullptr, flags))
         {
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS) x: %.3f, y: %.3f", 1000.0f / io.Framerate,
+            ImGui::Text("M Application average %.3f ms/frame (%.1f FPS) x: %.3f, y: %.3f", 1000.0f / io.Framerate,
                         io.Framerate, viewport->Size.x, viewport->Size.y);
             if (ImPlot::BeginPlot("My Plot", ImVec2(-1, -1)))
             {
