@@ -3,11 +3,10 @@
 	"version": "0.0.1",
 	"description": "A simple graphics cpp",
 	"homepage": "https://github.com/vtpl1/graphics-cpp",
-	"builtin-baseline": "e85b5bb95a14ff7e014601e88a8dc2fea6798e33",
+	"builtin-baseline": "ffe7360e0f5ba62f98b620575294ecb9d8a02980",
 	"dependencies": [
 		{
-			"name": "logutil",
-			"version>=": "1.10.0"
+			"name": "logutil"
 		},
 		"glfw3",
 		"glm",
@@ -16,12 +15,6 @@
 			"name": "imgui",
 			"features": [
 				"glfw-binding",
-				"docking-experimental"
-			]
-		},
-		{
-			"name": "imgui",
-			"features": [
 				"vulkan-binding"
 			]
 		}

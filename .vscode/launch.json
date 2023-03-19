@@ -5,50 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "walnut-app",
-            "type": "cppdbg",
+            "name": "graphics_utilities_test",
+            "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/WalnutApp/walnut-app",
+            "program": "${workspaceFolder}/build/Debug/graphics_utilities_test.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": false,
-            "windows": {
-                "name": "walnut-app",
-                "type": "cppvsdbg",
-                "request": "launch",
-                "program": "${workspaceFolder}/build/WalnutApp/Debug/walnut-app.exe",
-                "args": [],
-                "stopAtEntry": false,
-                "cwd": "${workspaceFolder}",
-                "environment": [],
-                "externalConsole": false,
-            },
-            "linux": {
-                "name": "walnut-app",
-                "type": "cppdbg",
-                "request": "launch",
-                "program": "${workspaceFolder}/build/WalnutApp/walnut-app",
-                "args": [],
-                "stopAtEntry": false,
-                "cwd": "${workspaceFolder}",
-                "environment": [],
-                "externalConsole": false,
-                "MIMode": "gdb",
-                "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Set Disassembly Flavor to Intel",
-                        "text": "-gdb-set disassembly-flavor intel",
-                        "ignoreFailures": true
-                    }
-                ]
-            }
+            "console": "externalTerminal"
         }
+
     ]
 }
