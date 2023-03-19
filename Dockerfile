@@ -6,14 +6,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     git curl wget ninja-build build-essential gdb python3-pip python3-setuptools \
     pkg-config zip unzip tar iputils-ping ccache
 
-RUN wget -O cmake.sh https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-linux-x86_64.sh \
+RUN wget -O cmake.sh https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.sh \
     && sh cmake.sh --prefix=/usr/local/ --exclude-subdir && rm -rf cmake.sh
 
 RUN apt-get update && apt-get -y install gpg-agent
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
 
-ARG LLVM_VERSION=13
+ARG LLVM_VERSION=16
 RUN add-apt-repository "deb http://apt.llvm.org/$(lsb_release -cs)/ llvm-toolchain-$(lsb_release -cs)-$LLVM_VERSION main"
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -73,7 +73,7 @@ RUN pip3 install -U pip
 RUN pip3 install bump2version
 
 RUN wget -qO - https://packages.lunarg.com/lunarg-signing-key-pub.asc | apt-key add - \
-    && wget -qO "/etc/apt/sources.list.d/lunarg-vulkan-1.3.239-$(lsb_release -cs).list https://packages.lunarg.com/vulkan/1.3.239/lunarg-vulkan-1.3.239-$(lsb_release -cs).list" \
+    && wget -qO "/etc/apt/sources.list.d/lunarg-vulkan-1.3.239-$(lsb_release -cs).list" "https://packages.lunarg.com/vulkan/1.3.239/lunarg-vulkan-1.3.239-$(lsb_release -cs).list" \
     && apt update && export DEBIAN_FRONTEND=noninteractive \
     && apt -y install vulkan-sdk
 

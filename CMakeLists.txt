@@ -16,6 +16,7 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
 find_package(imgui CONFIG REQUIRED)
+find_package(implot CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(logutil CONFIG REQUIRED)
@@ -32,6 +33,7 @@ add_library(${COMPONENT1} SHARED
 
 target_link_libraries(${COMPONENT1}
 	PUBLIC imgui::imgui
+	PUBLIC implot::implot
 	PUBLIC glfw
 	PUBLIC glm::glm
 	PUBLIC logutil::core

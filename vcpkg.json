@@ -11,6 +11,7 @@
 		"glfw3",
 		"glm",
 		"stb",
+		"implot",
 		{
 			"name": "imgui",
 			"features": [
