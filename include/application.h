@@ -18,17 +18,17 @@ void GRAPHICS_CPP_EXPORT test();
 void check_vk_result(VkResult err);
 
 struct GLFWwindow;
-
+extern bool g_ApplicationRunning;
 namespace vtpl
 {
-struct ApplicationSpecification
+struct GRAPHICS_CPP_EXPORT ApplicationSpecification
 {
     std::string Name = "Vtpl App";
     uint32_t    Width = 1600;
     uint32_t    Height = 900;
 };
 
-class Application
+class GRAPHICS_CPP_EXPORT Application
 {
   private:
     /* data */
@@ -71,7 +71,7 @@ class Application
     void Shutdown();
 
   private:
-    ApplicationSpecification m_applicationSpecification;
+    ApplicationSpecification m_Specification;
     GLFWwindow*              m_WindowHandle = nullptr;
     bool                     m_Running = false;
 
@@ -84,7 +84,7 @@ class Application
 };
 
 // Implemented by CLIENT
-Application* CreateApplication(int argc, char** argv);
+GRAPHICS_CPP_EXPORT Application* CreateApplication(int argc, char** argv);
 
 } // namespace vtpl
 #endif // application_h

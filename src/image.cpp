@@ -7,6 +7,7 @@
 #include "imgui.h"
 #include "imgui_impl_vulkan.h"
 
+#include "application.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 namespace vtpl
@@ -17,7 +18,7 @@ namespace Utils
 static uint32_t GetVulkanMemoryType(VkMemoryPropertyFlags properties, uint32_t type_bits)
 {
     VkPhysicalDeviceMemoryProperties prop;
-    // vkGetPhysicalDeviceMemoryProperties(Application::GetPhysicalDevice(), &prop);
+    vkGetPhysicalDeviceMemoryProperties(Application::GetPhysicalDevice(), &prop);
     for (uint32_t i = 0; i < prop.memoryTypeCount; i++)
     {
         if ((prop.memoryTypes[i].propertyFlags & properties) == properties && type_bits & (1 << i))
@@ -31,8 +32,6 @@ static uint32_t BytesPerPixel(ImageFormat format)
 {
     switch (format)
     {
-    case ImageFormat::None:
-        return 0;
     case ImageFormat::RGBA:
         return 4;
     case ImageFormat::RGBA32F:
@@ -45,8 +44,6 @@ static VkFormat WalnutFormatToVulkanFormat(ImageFormat format)
 {
     switch (format)
     {
-    case ImageFormat::None:
-        return (VkFormat)0;
     case ImageFormat::RGBA:
         return VK_FORMAT_R8G8B8A8_UNORM;
     case ImageFormat::RGBA32F:
@@ -93,7 +90,7 @@ Image::~Image() { Release(); }
 
 void Image::AllocateMemory(uint64_t size)
 {
-    VkDevice device = 0;// Application::GetDevice();
+    VkDevice device = Application::GetDevice();
 
     VkResult err;
 

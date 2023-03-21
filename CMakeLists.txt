@@ -28,8 +28,11 @@ list(APPEND COMPONENT1_PUBLIC_HEADERS
 	${PROJECT_BINARY_DIR}/version.h)
 
 add_library(${COMPONENT1} SHARED
+	src/imgui_impl_glfw.cpp
+	src/imgui_impl_vulkan.cpp
     src/application.cpp
-	# src/image.cpp
+	src/image.cpp
+	src/example_app.cpp
 )
 
 target_link_libraries(${COMPONENT1}
@@ -77,9 +80,7 @@ target_compile_features(${COMPONENT1}
 # set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 
 add_executable(graphics_utilities_test WIN32
-	src/imgui_impl_glfw.cpp
-	src/imgui_impl_vulkan.cpp
-	src/main.cpp
+	src/entry_point.cpp
 )
 
 target_link_libraries(graphics_utilities_test
