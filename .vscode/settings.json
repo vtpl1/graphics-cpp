@@ -12,6 +12,10 @@
         "CMAKE_C_COMPILER_LAUNCHER": "ccache",
         "CMAKE_CXX_COMPILER_LAUNCHER": "ccache"
     },
+    "files.associations": {
+        "ios": "cpp",
+        "__locale": "cpp"
+    },
     // "cmake.environment": {
     //     "VULKAN_SDK": "C:\\VulkanSDK\\1.3.224.1"
     // },

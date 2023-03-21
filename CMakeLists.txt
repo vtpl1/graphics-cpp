@@ -28,7 +28,8 @@ list(APPEND COMPONENT1_PUBLIC_HEADERS
 	${PROJECT_BINARY_DIR}/version.h)
 
 add_library(${COMPONENT1} SHARED
-    src/graphics_utilities.cpp
+    src/application.cpp
+	# src/image.cpp
 )
 
 target_link_libraries(${COMPONENT1}
