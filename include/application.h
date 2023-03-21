@@ -71,7 +71,7 @@ class Application
     void Shutdown();
 
   private:
-    ApplicationSpecification m_Specification;
+    ApplicationSpecification m_applicationSpecification;
     GLFWwindow*              m_WindowHandle = nullptr;
     bool                     m_Running = false;
 
