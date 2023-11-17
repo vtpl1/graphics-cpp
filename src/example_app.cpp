@@ -3,7 +3,28 @@
 #include "image.h"
 #include "implot.h"
 
+ExampleLayer::ExampleLayer() noexcept : x(new vtpl::Image("1.jpg")) {}
+
 void ExampleLayer::OnUIRender()
+{
+    const ImGuiViewport* viewport = ImGui::GetMainViewport();
+    ImGui::SetNextWindowPos(viewport->WorkPos);
+    ImGui::SetNextWindowSize(viewport->WorkSize);
+    ImGui::SetNextWindowViewport(viewport->ID);
+    static ImGuiWindowFlags flags =
+        ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize |
+        ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse |
+        ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoScrollWithMouse;
+    // auto x = vtpl::Image("1.jpg");
+    if (ImGui::Begin("Example: Fullscreen window", nullptr, flags))
+    {
+        ImGui::Button("Button");
+        ImGui::Image(x->GetDescriptorSet(), ImVec2(x->GetWidth(), x->GetHeight()));
+        ImGui::End();
+    }
+}
+
+void ExampleLayer1::OnUIRender()
 {
     ImGuiIO&     io = ImGui::GetIO();
     static float xs1[100], ys1[100];

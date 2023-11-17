@@ -14,7 +14,7 @@
 #include <stdio.h>  // printf, fprintf
 #include <stdlib.h> // abort
 #define GLFW_INCLUDE_NONE
-#define GLFW_INCLUDE_VULKAN
+#undef GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <iostream>

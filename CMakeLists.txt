@@ -15,6 +15,8 @@ set(COMPONENT1 ${PROJECT_NAME})
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
+
+find_package(Vulkan REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 find_package(implot CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
@@ -27,7 +29,7 @@ list(APPEND COMPONENT1_PUBLIC_HEADERS
 	${PROJECT_BINARY_DIR}/${COMPONENT1}_export.h
 	${PROJECT_BINARY_DIR}/version.h)
 
-add_library(${COMPONENT1} SHARED
+add_library(${COMPONENT1} STATIC
 	src/imgui_impl_glfw.cpp
 	src/imgui_impl_vulkan.cpp
     src/application.cpp
@@ -41,6 +43,7 @@ target_link_libraries(${COMPONENT1}
 	PUBLIC glfw
 	PUBLIC glm::glm
 	PUBLIC logutil::core
+	PUBLIC Vulkan::Vulkan
 )
 
 # target_sources(${COMPONENT1} PUBLIC FILE_SET HEADERS
